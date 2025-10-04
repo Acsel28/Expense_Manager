@@ -17,6 +17,14 @@ export default function DashboardPage() {
   const [recentExpenses, setRecentExpenses] = useState<Expense[]>([])
   const [loading, setLoading] = useState(true)
 
+  // 🏢 Hardcoded company names
+  const companyNames: Record<number, string> = {
+    1: "Acme Corporation",
+    2: "TechStart Inc",
+  }
+
+  const getCompanyName = (companyId: number) => companyNames[companyId] || "Unknown Company"
+
   useEffect(() => {
     fetchDashboardData()
   }, [])
@@ -75,7 +83,7 @@ export default function DashboardPage() {
       <div className="space-y-6">
         {/* Stats Cards */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {statCards.map((stat, index) => (
+          {statCards.map((stat) => (
             <Card key={stat.title} className="hover:shadow-lg transition-shadow">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-sm font-medium text-muted-foreground">{stat.title}</CardTitle>
@@ -127,6 +135,10 @@ export default function DashboardPage() {
                           </Badge>
                         </div>
                         <p className="text-sm text-muted-foreground">{expense.category}</p>
+                        {/* 🏢 Show hardcoded company name */}
+                        <p className="text-xs text-muted-foreground italic">
+                          {getCompanyName(expense.company_id)}
+                        </p>
                       </div>
                       <div className="text-right">
                         <p className="font-semibold">${expense.amount.toFixed(2)}</p>
