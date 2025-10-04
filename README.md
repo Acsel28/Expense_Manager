@@ -33,7 +33,16 @@ API: http://localhost:8000
 Interactive API docs: http://localhost:8000/docs
 Alternative API docs: http://localhost:8000/redoc
 Project Structure
-``` api/ ├── main.py # FastAPI application entry point ├── config.py # Configuration and settings ├── database.py # Database connection and session ├── requirements.txt # Python dependencies ├── .env # Environment variables (create from .env.example) ├── models/ # SQLAlchemy models (coming next) ├── schemas/ # Pydantic schemas (coming next) ├── routers/ # API route handlers (coming next) ├── services/ # Business logic (coming next) └── alembic/ # Database migrations (coming next) ```
+``` api/ ├── main.py # FastAPI application entry point 
+├── config.py # Configuration and settings
+├── database.py # Database connection and session
+├── requirements.txt # Python dependencies
+├── .env # Environment variables (create from .env.example)
+├── models/ # SQLAlchemy models (coming next)
+├── schemas/ # Pydantic schemas (coming next)
+├── routers/ # API route handlers (coming next)
+├── services/ # Business logic (coming next)
+└── alembic/ # Database migrations (coming next) ```
 
 Next Steps
 Create database models (Company, User, Expense)
